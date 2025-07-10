@@ -1,301 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Franki Official</title>
+    <title>Hubungi Kami | Franki Official</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <style>
-        /* Custom styles to enhance the design */
-        .gradient-bg {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        [x-cloak] { display: none !important; }
+
+        /* Style untuk efek ketik */
+        .typing-cursor {
+            border-right: .15em solid #3b82f6; /* Warna kursor biru */
+            animation: blink-caret .75s step-end infinite;
         }
-        .message-box {
-            min-height: 120px;
-        }
-        .input-effect {
-            transition: all 0.3s ease;
-            border-bottom: 2px solid #e5e7eb;
-        }
-        .input-effect:focus {
-            border-bottom-color: #4f46e5;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        .pulse:hover {
-            animation: pulse 1.5s infinite;
-        }
-        /* Preloader Animation */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #ffffff 0%, #f0f0f0 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #3b82f6; }
         }
 
-        .loader {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 5px solid rgba(0,0,0,0.1);
-            border-top-color: #3498db;
-            animation: spin 1s linear infinite;
+        /* Helper class untuk transisi dan animasi muncul */
+        .transition-default {
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Main Content - Initially Hidden */
-        .content {
+        .reveal-start {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease-in-out;
+            transform: translateY(30px);
         }
-
-        .content.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Preloader Animation */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #ffffff 0%, #f0f0f0 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loader {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 5px solid rgba(0,0,0,0.1);
-            border-top-color: #3498db;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Main Content - Initially Hidden */
-        .content {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease-in-out;
-        }
-
-        .content.visible {
+        .reveal-finish {
             opacity: 1;
             transform: translateY(0);
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Preloader Animation -->
-    <div class="preloader">
-        <div class="loader"></div>
+
+<body
+    class="bg-slate-50 text-slate-800"
+    x-data="contactPage()"
+    x-init="init"
+>
+    <div x-show="isLoading" x-transition:leave="transition ease-in duration-500" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 bg-slate-900 flex justify-center items-center z-[100]">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500"></div>
     </div>
 
-    <!-- Hero Section -->
-    <div class="gradient-bg text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact Our Franki</h1>
-                <p class="text-xl opacity-90 max-w-3xl mx-auto">
-                    Please fill in the email data and phone number so the admin can reply to your message.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="mt-6 text-center">
-        <a href="garansi.html" class="inline-block px-5 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition">
-            Claim Garansi
-        </a>
-    </div>
+    <div x-show="!isLoading" x-cloak>
+        <header class="sticky top-0 z-50 transition-all duration-300" @scroll.window="isScrolled = (window.scrollY > 10)" :class="{ 'bg-white/80 backdrop-blur-sm shadow-sm': isScrolled }">
+            <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <a href="index.html" class="text-2xl font-bold text-slate-900">Franki</a>
+                    <a href="garansi.html" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-all text-sm">
+                        Klaim Garansi
+                    </a>
+                </div>
+            </nav>
+        </header>
 
-    <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 content">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <!-- Contact Form -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div class="p-6 sm:p-8">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
-                    <form id="contactForm" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                            <input type="text" id="name" name="name" required 
-                                   class="input-effect w-full px-3 py-2 border-0 border-b-2 focus:ring-0 focus:outline-none">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                            <input type="email" id="email" name="email" required 
-                                   class="input-effect w-full px-3 py-2 border-0 border-b-2 focus:ring-0 focus:outline-none">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required 
-                                   class="input-effect w-full px-3 py-2 border-0 border-b-2 focus:ring-0 focus:outline-none">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-                            <textarea id="message" name="message" rows="4" required 
-                                      class="message-box w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-                        </div>
-                        <div class="flex items-center">
-                            <button type="submit" 
-                                    class="pulse px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+        <main>
+            <section class="relative bg-slate-900 text-white overflow-hidden">
+                <div class="absolute inset-0 bg-grid-slate-800 [mask-image:linear-gradient(to_bottom,white_10%,transparent)]"></div>
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
+                    <div class="text-center max-w-4xl mx-auto">
+                        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6">
+                            <span x-text="typedText"></span><span class="typing-cursor"></span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-slate-300 mb-10 transition-default reveal-start" :class="{'reveal-finish': startTyping}" style="transition-delay: 2500ms;">
+                            Isi formulir di bawah atau hubungi kami langsung melalui detail kontak yang tersedia.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 -mt-24 relative z-20">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                    <div class="lg:col-span-2 bg-white rounded-2xl shadow-xl p-8 reveal-on-scroll">
+                        <h2 class="text-3xl font-bold text-slate-900 mb-8">Kirim Pesan</h2>
+                        <form @submit.prevent="submitForm" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-600 mb-1">Nama Lengkap</label>
+                                <input type="text" id="name" name="name" x-model="formData.name" required class="w-full px-4 py-3 bg-slate-100 border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-600 mb-1">Alamat Email</label>
+                                <input type="email" id="email" name="email" x-model="formData.email" required class="w-full px-4 py-3 bg-slate-100 border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-slate-600 mb-1">Nomor Telepon</label>
+                                <input type="tel" id="phone" name="phone" x-model="formData.phone" required class="w-full px-4 py-3 bg-slate-100 border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-slate-600 mb-1">Pesan Anda</label>
+                                <textarea id="message" name="message" rows="5" x-model="formData.message" required class="w-full px-4 py-3 bg-slate-100 border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea>
+                            </div>
+                            <button type="submit" :disabled="isSubmitting" class="w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all flex items-center justify-center disabled:opacity-50">
+                                <span x-show="!isSubmitting">Kirim Pesan <i class="fas fa-paper-plane ml-2"></i></span>
+                                <span x-show="isSubmitting"><i class="fas fa-spinner fa-spin mr-2"></i> Mengirim...</span>
                             </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+                        </form>
+                    </div>
 
-            <!-- Contact Info -->
-            <div class="space-y-6">
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="p-6 sm:p-8">
-                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h2>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                                    <i class="fas fa-envelope text-indigo-600"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="text-sm font-medium text-gray-500">Email</p>
-                                    <a href="mailto:frankiofficial2@gmail.com" class="text-base text-indigo-600 hover:text-indigo-800">frankiofficial2@gmail.com</a>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                                    <i class="fas fa-phone-alt text-indigo-600"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="text-sm font-medium text-gray-500">Phone</p>
-                                    <a href="tel:+6285136472024" class="text-base text-indigo-600 hover:text-indigo-800">+62 851-3647-2024</a>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                                    <i class="fas fa-map-marker-alt text-indigo-600"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="text-sm font-medium text-gray-500">Address</p>
-                                    <p class="text-base text-gray-600">Kepulauan Riau</p>
+                    <div class="space-y-8">
+                        <div class="bg-white rounded-2xl shadow-xl p-8 reveal-on-scroll" style="transition-delay: 200ms">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-6">Informasi Kontak</h3>
+                            <div class="space-y-6">
+                                <a href="mailto:frankiofficial2@gmail.com" class="flex items-start space-x-4 group">
+                                    <i class="fas fa-envelope h-10 w-10 text-xl text-blue-600 bg-blue-100 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-slate-500">Email</p>
+                                        <p class="text-base text-slate-800 font-semibold group-hover:text-blue-600">frankiofficial2@gmail.com</p>
+                                    </div>
+                                </a>
+                                <a href="tel:+6285136472024" class="flex items-start space-x-4 group">
+                                    <i class="fas fa-phone-alt h-10 w-10 text-xl text-blue-600 bg-blue-100 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-slate-500">Telepon</p>
+                                        <p class="text-base text-slate-800 font-semibold group-hover:text-blue-600">+62 851-3647-2024</p>
+                                    </div>
+                                </a>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fas fa-map-marker-alt h-10 w-10 text-xl text-blue-600 bg-blue-100 rounded-lg flex items-center justify-center"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-slate-500">Alamat</p>
+                                        <p class="text-base text-slate-800 font-semibold">Kepulauan Riau, Indonesia</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden reveal-on-scroll" style="transition-delay: 400ms">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b3edb694-5a6e-4051-9e9e-0ac3e9a3ab9f.png" alt="Customer Service Team" class="w-full h-full object-cover">
+                        </div>
                     </div>
-                </div>
 
-                <!-- Illustration -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="p-4">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b3edb694-5a6e-4051-9e9e-0ac3e9a3ab9f.png" alt="Illustration of a customer service team collaborating with clients through digital devices, showing people using laptops and phones to communicate" class="w-full rounded-lg">
-                    </div>
                 </div>
+            </section>
+        </main>
+        
+        <footer class="bg-slate-900 text-slate-400">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm">
+                <p>&copy; 2025 Franki Official. Semua Hak Cipta Dilindungi.</p>
             </div>
-        </div>
+        </footer>
     </div>
 
-    <!-- Success Modal -->
-    <div id="successModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4 shadow-xl">
-            <div class="text-center">
-                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
-                    <i class="fas fa-check text-green-600 text-xl"></i>
-                </div>
-                <h3 class="text-lg font-medium text-gray-900 mb-2">Message Sent!</h3>
-                <p class="text-sm text-gray-500 mb-6">
-                    Your message has been successfully sent. We'll get back to you soon.
-                </p>
-                <button onclick="document.getElementById('successModal').classList.add('hidden')" 
-                        class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
-                    Close
-                </button>
+    <div x-show="showSuccessModal" @click.away="showSuccessModal = false" x-transition class="fixed inset-0 bg-slate-900 bg-opacity-75 flex items-center justify-center z-50 p-4" x-cloak>
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl text-center transform transition-all" x-show="showSuccessModal" x-transition>
+            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+                <i class="fas fa-check text-green-600 text-3xl"></i>
             </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Pesan Terkirim!</h3>
+            <p class="text-slate-600 mb-6">Pesan Anda berhasil dikirim. Kami akan segera menghubungi Anda.</p>
+            <button @click="showSuccessModal = false" class="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">Tutup</button>
         </div>
     </div>
-   
+    
     <script>
-        // Show content after preloader
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                const preloader = document.querySelector('.preloader');
-                preloader.style.opacity = '0';
-                
-                setTimeout(function() {
-                    preloader.style.display = 'none';
-                    document.querySelector('.content').classList.add('visible');
-                }, 500);
-            }, 1500);
-        });
+    function contactPage() {
+        return {
+            isLoading: true,
+            isScrolled: false,
+            isSubmitting: false,
+            showSuccessModal: false,
+            startTyping: false,
+            typedText: '',
+            formData: { name: '', email: '', phone: '', message: '' },
+            
+            init() {
+                // Logika Preloader & Animasi Awal
+                setTimeout(() => {
+                    this.isLoading = false;
+                    this.animateTyping();
+                }, 1500);
 
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
+                // Logika Animasi Scroll
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('reveal-finish');
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+                    el.classList.add('transition-default', 'reveal-start');
+                    observer.observe(el);
+                });
+            },
             
-            const form = e.target;
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Show loading state
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
-            
-            try {
-                // Send to Telegram bot (replace with your actual bot token and chat ID)
-                const telegramBotToken = '7556127257:AAHjYKxGwmz7rKEkiOGwWpNi2swmZHCriAg';
+            // ===== FUNGSI YANG DIPERBAIKI =====
+            animateTyping() {
+                this.startTyping = true;
+                const fullText = "Kami Siap Membantu";
+                let currentIndex = 0;
+                this.typedText = '';
+
+                const interval = setInterval(() => {
+                    if (currentIndex < fullText.length) {
+                        currentIndex++;
+                        this.typedText = fullText.slice(0, currentIndex);
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 80);
+            },
+
+            // Logika Pengiriman Form
+            async submitForm() {
+                this.isSubmitting = true;
+                const botToken = '7556127257:AAHjYKxGwmz7rKEkiOGwWpNi2swmZHCriAg';
                 const chatId = '6685458865';
-                const telegramMessage = `*New Contact Request*%0A%0A*Name:* ${data.name}%0A*Email:* ${data.email}%0A*Phone:* ${data.phone}%0A*Message:* ${data.message}`;
-                
-                await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${telegramMessage}&parse_mode=Markdown`);
-                
-                // Show success modal
-                document.getElementById('successModal').classList.remove('hidden');
-                
-                // Reset form
-                form.reset();
-            } catch (error) {
-                alert('There was an error sending your message. Please try again.');
-                console.error('Error:', error);
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-            }
-        });
+                const message = `*Permintaan Kontak Baru*\n\n` +
+                                `*Nama:* ${this.formData.name}\n` +
+                                `*Email:* ${this.formData.email}\n` +
+                                `*Telepon:* ${this.formData.phone}\n\n` +
+                                `*Pesan:*\n${this.formData.message}`;
+                const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
 
-        // Show content after preloader
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                const preloader = document.querySelector('.preloader');
-                preloader.style.opacity = '0';
-                
-                setTimeout(function() {
-                    preloader.style.display = 'none';
-                    document.querySelector('.content').classList.add('visible');
-                }, 500);
-            }, 1500);
-        });
-    </script>
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error('Gagal mengirim pesan.');
+                    this.showSuccessModal = true;
+                    this.resetForm();
+                } catch (error) {
+                    alert('Terjadi kesalahan. Silakan coba lagi.');
+                } finally {
+                    this.isSubmitting = false;
+                }
+            },
+            resetForm() {
+                this.formData = { name: '', email: '', phone: '', message: '' };
+            }
+        }
+    }
+</script>
 </body>
 </html>
