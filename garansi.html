@@ -1,112 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Claim Garansi | Franki Store</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    .pulse:hover {
-      animation: pulse 1.5s infinite;
-    }
-    .fade-in {
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klaim Garansi | Franki Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+        }
+        [x-cloak] { 
+            display: none !important; 
+        }
+
+        /* Animasi untuk entri elemen */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        /* Memberi jeda animasi untuk setiap elemen */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+    </style>
 </head>
- 
-<body class="bg-gray-100 font-sans">
-  <div class="min-h-screen flex items-center justify-center p-6">
-    <div class="bg-white shadow-xl rounded-lg max-w-2xl w-full p-8 fade-in">
-      <h1 class="text-3xl font-bold text-indigo-600 mb-4 text-center">Claim Your Garansi</h1>
-      <p class="text-gray-600 text-center mb-8">Fill out the form below to submit your warranty claim. Our support team will get in touch shortly.</p>
 
-      <form id="warrantyForm" class="space-y-5" enctype="multipart/form-data">
-        <input type="text" name="wname" placeholder="Full Name" required class="w-full px-4 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-indigo-500 transition">
-        <input type="email" name="wemail" placeholder="Email Address" required class="w-full px-4 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-indigo-500 transition">
-        <input type="tel" name="wphone" placeholder="Phone Number" required class="w-full px-4 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-indigo-500 transition">
+<body x-data="warrantyFormHandler()" class="text-gray-300">
+    <div class="min-h-screen flex items-center justify-center p-4 sm:p-6">
+        
+        <div class="bg-gray-800/80 backdrop-blur-sm border border-gray-700 shadow-2xl rounded-2xl max-w-4xl w-full p-8 sm:p-12">
+            
+            <div class="text-center mb-10">
+                <h1 class="text-4xl font-bold text-white mb-3 fade-in-up">Klaim Garansi</h1>
+                <p class="text-gray-400 fade-in-up delay-100">Isi formulir di bawah ini dan tim kami akan segera menghubungi Anda.</p>
+            </div>
 
-        <div>
-          <label class="block mb-2 text-sm text-gray-700">Upload Proof of Purchase</label>
-          <label class="flex items-center justify-center px-4 py-6 bg-white border-2 border-dashed border-indigo-300 rounded-lg cursor-pointer hover:bg-indigo-50">
-            <i class="fas fa-upload text-indigo-600 mr-2"></i> Upload Image
-            <input type="file" name="wproof" accept="image/*" required class="hidden">
-          </label>
+            <form @submit.prevent="submitForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                    <div class="space-y-6">
+                        <input type="text" x-model="formData.name" placeholder="Nama Lengkap" required class="fade-in-up delay-200 w-full px-4 py-3 bg-gray-700 border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition text-white">
+                        <input type="email" x-model="formData.email" placeholder="Alamat Email" required class="fade-in-up delay-300 w-full px-4 py-3 bg-gray-700 border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition text-white">
+                        <input type="tel" x-model="formData.phone" placeholder="Nomor Telepon" required class="fade-in-up delay-400 w-full px-4 py-3 bg-gray-700 border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition text-white">
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="fade-in-up delay-500">
+                            <label @dragover.prevent @drop.prevent="handleDrop" class="flex flex-col items-center justify-center w-full h-32 bg-gray-700 border-2 border-dashed border-gray-600 rounded-lg cursor-pointer hover:bg-gray-600 hover:border-indigo-500 transition">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
+                                    <p class="text-sm text-gray-400"><span class="font-semibold text-indigo-400">Klik untuk unggah</span> atau seret file</p>
+                                    <p class="text-xs text-gray-500">PNG, JPG, atau GIF</p>
+                                </div>
+                                <input type="file" @change="handleFileSelect" accept="image/*" required class="hidden">
+                            </label>
+                            <template x-if="imageUrl">
+                                <div class="mt-4 text-center">
+                                    <img :src="imageUrl" class="max-h-32 mx-auto rounded-lg shadow-lg">
+                                    <button type="button" @click="removeImage" class="mt-2 text-xs text-red-400 hover:underline">Hapus gambar</button>
+                                </div>
+                            </template>
+                        </div>
+
+                        <textarea x-model="formData.issue" rows="4" placeholder="Jelaskan masalah Anda di sini..." required class="fade-in-up delay-500 w-full px-4 py-3 bg-gray-700 border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition text-white"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" :disabled="isSubmitting" class="w-full py-3 mt-8 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500 transition-all transform hover:scale-105 disabled:opacity-50 disabled:scale-100 flex items-center justify-center">
+                    <span x-show="!isSubmitting">Kirim Klaim</span>
+                    <span x-show="isSubmitting"><i class="fas fa-spinner fa-spin mr-3"></i>Mengirim...</span>
+                </button>
+                <p x-show="errorMessage" x-text="errorMessage" class="text-center text-sm text-red-400 mt-2"></p>
+            </form>
         </div>
-
-        <textarea name="wmessage" rows="4" placeholder="Describe your issue..." required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-
-        <button type="submit" id="submitBtn" class="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition pulse">
-          Submit Claim
-        </button>
-
-        <div id="loadingMsg" class="text-center text-sm text-indigo-600 hidden mt-2">
-          <i class="fas fa-spinner fa-spin mr-2"></i>Submitting your claim...
-        </div>
-        <div id="successMsg" class="text-center text-sm text-green-600 hidden mt-2">
-          <i class="fas fa-check-circle mr-1"></i>Your warranty claim has been submitted successfully.
-        </div>
-        <div id="errorMsg" class="text-center text-sm text-red-600 hidden mt-2">
-          <i class="fas fa-times-circle mr-1"></i>Error submitting warranty claim. Please try again.
-        </div>
-      </form>
     </div>
-  </div>
-<div class="mb-6 text-center">
-  <a href="index.html" class="inline-block px-4 py-2 text-indigo-600 border border-indigo-600 rounded-md hover:bg-indigo-50 transition">
-    Back to Contact
-  </a>
+
+    <div x-show="showSuccessModal" @keydown.escape.window="showSuccessModal = false" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4" x-cloak>
+        <div @click.away="showSuccessModal = false" x-show="showSuccessModal" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" class="bg-gray-800 border border-gray-700 rounded-2xl p-8 max-w-md w-full mx-auto shadow-2xl text-center">
+            <lottie-player src="https://lottie.host/890d0249-53a5-4876-8088-a621c834ed8c/1n0VGRf2zt.json" background="transparent" speed="1" style="width: 150px; height: 150px; margin: 0 auto;" autoplay></lottie-player>
+            <h3 class="text-2xl font-bold text-white mt-2 mb-2">Klaim Terkirim!</h3>
+            <p class="text-gray-400 mb-6">Terima kasih. Tim kami akan segera memproses klaim Anda.</p>
+            <button @click="showSuccessModal = false" class="w-full px-4 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition">Luar Biasa!</button>
+        </div>
+    </div>
+    <div class="mt-8 text-center">
+    <a href="index.html" class="inline-block px-6 py-2 text-indigo-400 border border-indigo-400 rounded-full hover:bg-indigo-500 hover:text-white transition-all duration-300">
+        <i class="fas fa-arrow-left mr-2"></i>Kembali ke Beranda
+    </a>
 </div>
-  <script>
-    const form = document.getElementById('warrantyForm');
-    const loadingMsg = document.getElementById('loadingMsg');
-    const successMsg = document.getElementById('successMsg');
-    const errorMsg = document.getElementById('errorMsg');
-    const submitBtn = document.getElementById('submitBtn');
 
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      loadingMsg.classList.remove('hidden');
-      successMsg.classList.add('hidden');
-      errorMsg.classList.add('hidden');
-      submitBtn.disabled = true;
+    <script>
+        function warrantyFormHandler() {
+            return {
+                isSubmitting: false,
+                showSuccessModal: false,
+                errorMessage: '',
+                imageUrl: null,
+                file: null,
+                formData: {
+                    name: '',
+                    email: '',
+                    phone: '',
+                    issue: ''
+                },
+                handleFileSelect(event) {
+                    this.processFile(event.target.files[0]);
+                },
+                handleDrop(event) {
+                    this.processFile(event.dataTransfer.files[0]);
+                },
+                processFile(file) {
+                    if (!file || !file.type.startsWith('image/')) {
+                        this.errorMessage = 'Harap pilih file gambar yang valid.';
+                        return;
+                    }
+                    this.file = file;
+                    this.imageUrl = URL.createObjectURL(file);
+                    this.errorMessage = '';
+                },
+                removeImage() {
+                    this.file = null;
+                    this.imageUrl = null;
+                },
+                async submitForm() {
+                    if (!this.file) {
+                        this.errorMessage = 'Harap unggah bukti pembelian.';
+                        return;
+                    }
+                    this.isSubmitting = true;
+                    this.errorMessage = '';
 
-      const formData = new FormData(form);
-      const imageFile = formData.get('wproof');
+                    const botToken = '7556127257:AAHjYKxGwmz7rKEkiOGwWpNi2swmZHCriAg';
+                    const chatId = '6685458865';
+                    const apiUrl = `https://api.telegram.org/bot${botToken}/sendPhoto`;
+                    
+                    const caption = `*Klaim Garansi Baru* 🛠️\n\n` +
+                                    `*Nama:* ${this.formData.name}\n` +
+                                    `*Email:* ${this.formData.email}\n` +
+                                    `*Telepon:* ${this.formData.phone}\n\n` +
+                                    `*Detail Masalah:*\n${this.formData.issue}`;
 
-      const caption = `🛠 *New Warranty Claim*\n\n👤 *Name:* ${formData.get('wname')}\n📞 *Phone:* ${formData.get('wphone')}\n📧 *Email:* ${formData.get('wemail')}\n📝 *Issue:* ${formData.get('wmessage')}`;
+                    const uploadData = new FormData();
+                    uploadData.append('chat_id', chatId);
+                    uploadData.append('caption', caption);
+                    uploadData.append('parse_mode', 'Markdown');
+                    uploadData.append('photo', this.file);
 
-      const botToken = '7556127257:AAHjYKxGwmz7rKEkiOGwWpNi2swmZHCriAg';
-      const chatId = '6685458865';
-      const apiUrl = `https://api.telegram.org/bot${botToken}/sendPhoto`;
-
-      const uploadData = new FormData();
-      uploadData.append('chat_id', chatId);
-      uploadData.append('caption', caption);
-      uploadData.append('parse_mode', 'Markdown');
-      uploadData.append('photo', imageFile);
-
-      try {
-        await fetch(apiUrl, { method: 'POST', body: uploadData });
-        successMsg.classList.remove('hidden');
-        form.reset();
-      } catch (error) {
-        errorMsg.classList.remove('hidden');
-        console.error(error);
-      } finally {
-        loadingMsg.classList.add('hidden');
-        submitBtn.disabled = false;
-      }
-    });
-  </script>
+                    try {
+                        const response = await fetch(apiUrl, { method: 'POST', body: uploadData });
+                        const result = await response.json();
+                        if (!result.ok) throw new Error('Gagal mengirim ke Telegram.');
+                        
+                        this.showSuccessModal = true;
+                        this.resetForm();
+                    } catch (error) {
+                        this.errorMessage = 'Gagal mengirim klaim. Silakan coba lagi.';
+                        console.error(error);
+                    } finally {
+                        this.isSubmitting = false;
+                    }
+                },
+                resetForm() {
+                    this.formData = { name: '', email: '', phone: '', issue: '' };
+                    this.removeImage();
+                }
+            }
+        }
+    </script>
 </body>
 </html>
