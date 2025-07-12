@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franki - Produk Hosting Terbaik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .cart-item {
+            transition: all 0.3s ease;
+        }
+        
+        .payment-method {
+            transition: all 0.2s ease;
+        }
+        
+        .payment-method:hover {
+            border-color: #3b82f6;
+        }
+        
+        @media (max-width: 640px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .checkout-form {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f5e7e6b6-344e-4a24-9699-1c56b6da18ce.png" alt="Logo HostingKu berbentuk server dengan gradien biru" class="h-10 w-10">
+                <h1 class="text-xl font-bold text-gray-800">Franki</h1>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button id="cart-btn" class="relative p-2 text-gray-600 hover:text-blue-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </button>
+                <button class="md:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Hosting Terbaik dengan Performa Tinggi</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Dapatkan hosting terbaik dengan uptime 99.9% dan support 24/7 untuk website Anda.</p>
+            <button class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 transition duration-300">Lihat Paket Hosting</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">Virtual Private Server</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 product-grid">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Paket 16GB</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 65.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Garansi 15 Hari</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Free Thema</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Free Install</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Core 8GB</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="1" data-name="Paket Vps 16GB" data-price="65000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Paket 8GB</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 50.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Garansi 15 Hari</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Free Thema</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Free Install</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Core 4GB</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="2" data-name="Paket Vps 8GB" data-price="50000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Paket 4GB</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 35.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Garansi 15 Hari</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Free Install</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Core 2GB</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="3" data-name="Vps Ram 4GB" data-price="35000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Paket 2GB</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 30.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Garansi 15 Hari</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Free Install</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Core 2GB</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="4" data-name="Paket Vps 2GB" data-price="30000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        <!-- Products Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">Panel Pterodctyl Private</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 product-grid">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Paket Unlimited</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 11.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Cpu Unlimited</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Online 24Jam</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Fast Server</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="1" data-name="Paket Panel Unlimited" data-price="100000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Paket 9GB</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 8.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Cpu 200%</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Online 24Jam</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="2" data-name="Paket Panel 8GB" data-price="8000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Paket 6GB</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 5.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Cpu 140%</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Online 24Jam</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="3" data-name="Paket Panel 6GB" data-price="5000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Paket Panel 3GB</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 2.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Cpu 80%</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Online 24Jam</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="4" data-name="Paket Panel 3GB" data-price="2000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+           <!-- Products Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">Produk Lainnya</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 product-grid">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Nokos Wa Indonesia</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 5.000<span class="text-sm text-gray-500"></span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>1x Verifikasi</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Otp Verifikasi</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="1" data-name="Nokos WhatsApp Indonesia" data-price="5000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Nokos Wa Philipina</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 7.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>1x Verifikasi</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Otp Verifikasi</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="2" data-name="Nokos WhatsApp Philipina" data-price="7000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Script Kine Cpanel Simpel V2</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 25.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Free Update</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>No Enc 100%</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="3" data-name="Kine Cpanel V1" data-price="25000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Jasa Create Sc Bot Wa</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 35.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Bebas Request</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Create Manual</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="4" data-name="Jasa Create Sc" data-price="35000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                                <!-- Product 5 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                    <div class="bg-gray-100 p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-800">Jasa Rename Sc Akar</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-4xl font-bold text-blue-600">Rp 5.000<span class="text-sm text-gray-500">/bln</span></p>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Request Rename</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Proses Cepat</span>
+                            </li>
+                        </ul>
+                        <button class="add-to-cart w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300" data-id="4" data-name="Jasa Rename Sc" data-price="5000">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen">
+            <div class="bg-white rounded-lg shadow-xl w-full max-w-md mx-4">
+                <div class="border-b p-4 flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Keranjang Belanja</h3>
+                    <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="p-4 max-h-96 overflow-y-auto" id="cart-items-container">
+                    <!-- Cart items will be displayed here -->
+                    <p class="text-center py-8 text-gray-500" id="empty-cart-message">Keranjang Anda masih kosong</p>
+                </div>
+                
+                <div class="border-t p-4">
+                    <div class="flex justify-between mb-4">
+                        <span class="font-bold">Total:</span>
+                        <span class="font-bold" id="cart-total">Rp 0</span>
+                    </div>
+                    <button id="checkout-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed transition duration-300" disabled>
+                        Lanjut ke Pembayaran
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen">
+            <div class="bg-white rounded-lg shadow-xl w-full max-w-lg mx-4">
+                <div class="border-b p-4 flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Checkout</h3>
+                    <button id="close-checkout" class="text-gray-500 hover:text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="p-4 overflow-y-auto">
+                    <!-- Customer Info -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-3">Informasi Pelanggan</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                                <input type="text" id="customer-name" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="customer-email" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">No. Telepon</label>
+                                <input type="tel" id="customer-phone" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-blue-500">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Summary -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-3">Ringkasan Pesanan</h4>
+                        <div id="checkout-items" class="border rounded divide-y">
+                            <!-- Items will be populated here -->
+                        </div>
+                        <div class="flex justify-between mt-3 font-bold">
+                            <span>Total:</span>
+                            <span id="checkout-total">Rp 0</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Method -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-3">Metode Pembayaran</h4>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="payment-method p-3 border rounded cursor-pointer text-center" data-method="bank_transfer">
+                                <img src="https://files.cloudkuimages.guru/images/iDOpXSyR.jpg" alt="Bank Transfer icon" class="mx-auto mb-2">
+                                <span>Scan Qris</span>
+                            </div>
+                            <div class="payment-method p-3 border rounded cursor-pointer text-center" data-method="e_wallet">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/023685a1-9447-4bba-a47c-9160a873b5d9.png" alt="E-Wallet icon" class="mx-auto mb-2">
+                                <span>E-Wallet</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Payment Details -->
+                        <div id="bank-details" class="mt-4 hidden">
+                            <div class="bg-blue-50 p-3 rounded text-sm relative">
+                                <p class="font-semibold mb-2">SS DAN SCAN QR DI ATAS</p>
+                                <p class="mb-1">N/A QRIS : ZFRNN STORE</p>
+                                <p class="font-semibold mb-2">DANA : 085363921814</p>
+                                <p class="mb-1">N/A : mk*****ni</p>
+                                <p class="font-semibold mb-2">GOPAY : 085363921814</p>
+                                <p class="mb-1">N/A : za**an</p>
+                                
+                            </div>
+                        </div>
+                        
+                        <div id="transfer-proof" class="mt-4 hidden">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Upload Bukti Transfer</label>
+                            <div class="border-dashed border-2 border-gray-300 rounded p-4 text-center cursor-pointer hover:bg-gray-50" id="proof-dropzone">
+                                <input type="file" id="proof-input" class="hidden" accept="image/*,.pdf">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                </svg>
+                                <p class="text-sm text-gray-500">Klik untuk upload atau drag & drop</p>
+                                <p class="text-xs text-gray-400 mt-1">Format: JPG, PNG, PDF (maks. 5MB)</p>
+                            </div>
+                            <div id="proof-preview" class="hidden mt-4 bg-gray-50 p-3 rounded max-h-40 overflow-y-auto">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1 min-w-0">
+                                        <p id="proof-file-name" class="font-medium truncate"></p>
+                                    </div>
+                                    <button id="remove-proof" class="text-red-500 hover:text-red-700 ml-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="submit-order" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed transition duration-300" disabled>
+                        Konfirmasi Pesanan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen">
+            <div class="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 p-6 text-center">
+                <div class="text-green-500 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Pesanan Berhasil</h3>
+                <p class="text-gray-600 mb-6">Pesanan Anda telah berhasil diterima. Kami akan menghubungi Email/Nomor Anda setelah pembayaran dikonfirmasi.</p>
+                <button id="close-success" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300">
+                    Kembali ke Beranda
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Telegram bot configuration
+            const TELEGRAM_BOT_TOKEN = '7556127257:AAHjYKxGwmz7rKEkiOGwWpNi2swmZHCriAg'; // Replace with your bot token
+            const TELEGRAM_CHAT_ID = '6685458865'; // Replace with your chat ID
+
+            // Initialize cart
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let selectedPaymentMethod = null;
+            let proofFile = null;
+            
+            // DOM Elements
+            const cartBtn = document.getElementById('cart-btn');
+            const closeCartBtn = document.getElementById('close-cart');
+            const cartModal = document.getElementById('cart-modal');
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const cartCount = document.getElementById('cart-count');
+            const cartTotal = document.getElementById('cart-total');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const closeCheckoutBtn = document.getElementById('close-checkout');
+            const checkoutModal = document.getElementById('checkout-modal');
+            const closeSuccessBtn = document.getElementById('close-success');
+            const successModal = document.getElementById('success-modal');
+            const addToCartBtns = document.querySelectorAll('.add-to-cart');
+            const checkoutItems = document.getElementById('checkout-items');
+            const checkoutTotal = document.getElementById('checkout-total');
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            const bankDetails = document.getElementById('bank-details');
+            const transferProof = document.getElementById('transfer-proof');
+            const proofDropzone = document.getElementById('proof-dropzone');
+            const proofInput = document.getElementById('proof-input');
+            const proofPreview = document.getElementById('proof-preview');
+            const proofFileName = document.getElementById('proof-file-name');
+            const removeProofBtn = document.getElementById('remove-proof');
+            const submitOrderBtn = document.getElementById('submit-order');
+            
+            // Update cart UI
+            function updateCart() {
+                // Update cart count
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                cartCount.textContent = totalItems;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Update cart items
+                cartItemsContainer.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    emptyCartMessage.classList.remove('hidden');
+                    checkoutBtn.disabled = true;
+                    cartTotal.textContent = 'Rp 0';
+                } else {
+                    emptyCartMessage.classList.add('hidden');
+                    checkoutBtn.disabled = false;
+                    
+                    let totalPrice = 0;
+                    
+                    cart.forEach((item, index) => {
+                        const itemTotal = item.price * item.quantity;
+                        totalPrice += itemTotal;
+                        
+                        const itemElement = document.createElement('div');
+                        itemElement.className = 'cart-item flex justify-between items-center p-3 border-b';
+                        itemElement.innerHTML = `
+                            <div>
+                                <h4 class="font-medium">${item.name}</h4>
+                                <div class="flex items-center mt-1">
+                                    <button class="decrease-qty px-2" data-index="${index}">-</button>
+                                    <span class="mx-2">${item.quantity}</span>
+                                    <button class="increase-qty px-2" data-index="${index}">+</button>
+                                    <span class="ml-4 text-blue-600">Rp ${item.price.toLocaleString()}</span>
+                                </div>
+                            </div>
+                            <button class="remove-item text-red-500 hover:text-red-700" data-index="${index}">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
+                        `;
+                        cartItemsContainer.appendChild(itemElement);
+                    });
+                    
+                    cartTotal.textContent = `Rp ${totalPrice.toLocaleString()}`;
+                }
+            }
+            
+            // Add to cart functionality
+            addToCartBtns.forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const name = this.getAttribute('data-name');
+                    const price = parseInt(this.getAttribute('data-price'));
+                    
+                    // Check if item already in cart
+                    const existingItem = cart.find(item => item.id === id);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            id,
+                            name,
+                            price,
+                            quantity: 1
+                        });
+                    }
+                    
+                    updateCart();
+                    cartModal.classList.remove('hidden');
+                    
+                    // Button animation
+                    this.textContent = 'Ditambahkan!';
+                    this.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                    this.classList.add('bg-green-500', 'hover:bg-green-600');
+                    
+                    setTimeout(() => {
+                        this.textContent = 'Tambah ke Keranjang';
+                        this.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        this.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                    }, 1000);
+                });
+            });
+            
+            // Cart quantity controls
+            cartItemsContainer.addEventListener('click', function(e) {
+                if (e.target.classList.contains('increase-qty')) {
+                    const index = e.target.getAttribute('data-index');
+                    cart[index].quantity += 1;
+                    updateCart();
+                }
+                
+                if (e.target.classList.contains('decrease-qty')) {
+                    const index = e.target.getAttribute('data-index');
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity -= 1;
+                        updateCart();
+                    }
+                }
+                
+                if (e.target.classList.contains('remove-item') || e.target.closest('.remove-item')) {
+                    const index = e.target.classList.contains('remove-item') 
+                        ? e.target.getAttribute('data-index') 
+                        : e.target.closest('.remove-item').getAttribute('data-index');
+                    cart.splice(index, 1);
+                    updateCart();
+                }
+            });
+            
+            // Cart modal controls
+            cartBtn.addEventListener('click', function() {
+                cartModal.classList.remove('hidden');
+            });
+            
+            closeCartBtn.addEventListener('click', function() {
+                cartModal.classList.add('hidden');
+            });
+            
+            // Checkout flow
+            checkoutBtn.addEventListener('click', function() {
+                cartModal.classList.add('hidden');
+                
+                // Update checkout items
+                checkoutItems.innerHTML = '';
+                let totalPrice = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    totalPrice += itemTotal;
+                    
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'p-3 flex justify-between';
+                    itemElement.innerHTML = `
+                        <span>${item.name} (${item.quantity}x)</span>
+                        <span>Rp ${itemTotal.toLocaleString()}</span>
+                    `;
+                    checkoutItems.appendChild(itemElement);
+                });
+                
+                checkoutTotal.textContent = `Rp ${totalPrice.toLocaleString()}`;
+                checkoutModal.classList.remove('hidden');
+            });
+            
+            closeCheckoutBtn.addEventListener('click', function() {
+                checkoutModal.classList.add('hidden');
+            });
+            
+            // Payment method selection
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    // Remove active class from all methods
+                    paymentMethods.forEach(m => {
+                        m.classList.remove('border-blue-500', 'bg-blue-50');
+                    });
+                    
+                    // Add active class to selected method
+                    this.classList.add('border-blue-500', 'bg-blue-50');
+                    selectedPaymentMethod = this.getAttribute('data-method');
+                    
+                    // Show relevant info
+                    if (selectedPaymentMethod === 'bank_transfer') {
+                        bankDetails.classList.remove('hidden');
+                        transferProof.classList.remove('hidden');
+                    } else {
+                        bankDetails.classList.add('hidden');
+                        transferProof.classList.add('hidden');
+                    }
+                    
+                    // Force validate form and enable submit if all required fields are filled
+                    const name = document.getElementById('customer-name').value;
+                    const email = document.getElementById('customer-email').value;
+                    const phone = document.getElementById('customer-phone').value;
+                    
+                    if (selectedPaymentMethod === 'bank_transfer') {
+                        submitOrderBtn.disabled = !(name && email && phone && proofFile);
+                    } else {
+                        submitOrderBtn.disabled = !(name && email && phone && selectedPaymentMethod);
+                    }
+                });
+            });
+            
+            // File upload handling
+            proofDropzone.addEventListener('click', function() {
+                proofInput.click();
+            });
+            
+            proofInput.addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    proofFile = e.target.files[0];
+                    handleFilePreview(proofFile, document.getElementById('proof-preview-content'), proofFileName);
+                    proofPreview.classList.remove('hidden');
+                    updateSubmitButton();
+                }
+            });
+            
+            removeProofBtn.addEventListener('click', function() {
+                proofFile = null;
+                proofInput.value = '';
+                proofPreview.classList.add('hidden');
+                updateSubmitButton();
+            });
+            
+            // Drag and drop for proof
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                proofDropzone.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            ['dragenter', 'dragover'].forEach(eventName => {
+                proofDropzone.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                proofDropzone.addEventListener(eventName, unhighlight, false);
+            });
+            
+            function highlight() {
+                proofDropzone.classList.add('border-blue-500', 'bg-blue-50');
+            }
+            
+            function unhighlight() {
+                proofDropzone.classList.remove('border-blue-500', 'bg-blue-50');
+            }
+            
+            proofDropzone.addEventListener('drop', function(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                
+                if (files.length > 0) {
+                    proofFile = files[0];
+                    proofFileName.textContent = proofFile.name;
+                    proofPreview.classList.remove('hidden');
+                    updateSubmitButton();
+                }
+            });
+            
+            // Update submit button state
+            function updateSubmitButton() {
+                const name = document.getElementById('customer-name').value;
+                const email = document.getElementById('customer-email').value;
+                const phone = document.getElementById('customer-phone').value;
+                
+                if (selectedPaymentMethod === 'bank_transfer') {
+                    submitOrderBtn.disabled = !(name && email && phone && proofFile);
+                } else {
+                    submitOrderBtn.disabled = !(name && email && phone && selectedPaymentMethod);
+                }
+            }
+            
+            // Submit order
+            submitOrderBtn.addEventListener('click', async function() {
+                // Get customer info
+                const customerName = document.getElementById('customer-name').value;
+                const customerEmail = document.getElementById('customer-email').value;
+                const customerPhone = document.getElementById('customer-phone').value;
+                
+                // Validate inputs
+                if (!customerName || !customerEmail || !customerPhone) {
+                    alert('Harap isi semua informasi pelanggan');
+                    return;
+                }
+                
+                // Disable button during submission
+                submitOrderBtn.disabled = true;
+                submitOrderBtn.textContent = 'Memproses...';
+                
+                try {
+                    // Prepare order data
+                    const order = {
+                        customer: {
+                            name: customerName,
+                            email: customerEmail,
+                            phone: customerPhone
+                        },
+                        items: cart,
+                        paymentMethod: selectedPaymentMethod,
+                        total: cart.reduce((total, item) => total + (item.price * item.quantity), 0),
+                        proofFile: proofFile ? proofFile.name : null
+                    };
+                
+                // Send to Telegram bot
+                    const result = await sendToTelegramBot(order);
+                    
+                    if (result.ok) {
+                        // Clear cart and show success
+                        cart = [];
+                        localStorage.removeItem('cart');
+                        updateCart();
+                        
+                        checkoutModal.classList.add('hidden');
+                        successModal.classList.remove('hidden');
+                    } else {
+                        alert('Gagal mengirim pesanan, silakan coba lagi');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Terjadi kesalahan saat memproses pesanan');
+                } finally {
+                    submitOrderBtn.disabled = false;
+                    submitOrderBtn.textContent = 'Konfirmasi Pesanan';
+                }
+            });
+            
+            closeSuccessBtn.addEventListener('click', function() {
+                successModal.classList.add('hidden');
+                // Reset the form
+                document.getElementById('customer-name').value = '';
+                document.getElementById('customer-email').value = '';
+                document.getElementById('customer-phone').value = '';
+                paymentMethods.forEach(m => m.classList.remove('border-blue-500', 'bg-blue-50'));
+                bankDetails.classList.add('hidden');
+                transferProof.classList.add('hidden');
+                proofFile = null;
+                proofInput.value = '';
+                proofPreview.classList.add('hidden');
+                submitOrderBtn.disabled = true;
+            });
+            
+            // Send notification to Telegram bot
+            async function sendToTelegramBot(order) {
+                try {
+                    // Format order details
+                    const orderDetails = order.items.map(item => 
+                        `${item.name} x ${item.quantity} = Rp ${(item.price * item.quantity).toLocaleString()}`
+                    ).join('\n');
+                    
+                    const message = `Pesanan Baru!\n\nNama: ${order.customer.name}\nEmail: ${order.customer.email}\nTelepon: ${order.customer.phone}\nMetode Pembayaran: ${order.paymentMethod}\nTotal: Rp ${order.total.toLocaleString()}\n\nPesanan:\n${orderDetails}`;
+                    
+                    // Send text message
+                    const textResponse = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: TELEGRAM_CHAT_ID,
+                            text: message
+                        })
+                    });
+                    
+                    // If proof file exists and is an image, send it as photo
+                    if (order.proofFile && proofFile && proofFile.type.match('image.*')) {
+                        const formData = new FormData();
+                        formData.append('chat_id', TELEGRAM_CHAT_ID);
+                        formData.append('photo', proofFile);
+                        formData.append('caption', `Bukti transfer dari ${order.customer.name}`);
+                        
+                        const photoResponse = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        return photoResponse.json();
+                    }
+                    
+                    return textResponse.json();
+                } catch (error) {
+                    console.error('Error sending to Telegram:', error);
+                    return { ok: false, error };
+                }
+            }
+            
+            // Payment details zoom/download
+            document.querySelector('.download-details')?.addEventListener('click', function() {
+                // Create a text file with bank details
+                const details = `Bank: Bank BCA\nNo. Rekening: 1234567890\nAtas Nama: PT HostingKu`;
+                const blob = new Blob([details], {type: 'text/plain'});
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'detail_pembayaran.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+
+            document.querySelector('.zoom-details')?.addEventListener('click', function() {
+                // Show enlarged view
+                const zoomModal = `
+                    <div class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center">
+                        <div class="bg-white p-6 rounded-lg max-w-md">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-bold">Detail Pembayaran</h3>
+                                <button class="close-zoom text-gray-500 hover:text-gray-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded text-sm">
+                                <p class="font-semibold mb-2">Bank: Bank BCA</p>
+                                <p class="mb-1">No. Rekening: 1234567890</p>
+                                <p>Atas Nama: PT HostingKu</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.insertAdjacentHTML('beforeend', zoomModal);
+                
+                document.querySelector('.close-zoom').addEventListener('click', function() {
+                    document.querySelector('.fixed.inset-0').remove();
+                });
+            });
+
+            // Initialize the cart
+            updateCart();
+        });
+
+        // Simplified file preview showing just filename
+        function handleFilePreview(file, previewContainer, fileNameElement) {
+            fileNameElement.textContent = file.name;
+            previewContainer.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
